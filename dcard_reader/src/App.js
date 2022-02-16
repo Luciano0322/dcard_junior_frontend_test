@@ -9,12 +9,13 @@ function App() {
   const {posts, loading, error} = usePopPosts(query, lastId)
 	const observer = useRef()
 	const lastPostElRef = useCallback(node => {
+    // 必須避開loading的情況
 		if(loading) return
     if(observer.current) observer.current.disconnect()
     observer.current = new IntersectionObserver(entries => {
 			if(entries[0].isIntersecting) {
-        // trcking scroll bottom event
-        console.log(node.id);
+        // 追蹤觸底事件
+        // console.log(node.id);
         setLastId(node.id)
 				
       }

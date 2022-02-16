@@ -18,6 +18,7 @@ export default function usePopPosts(query, beforeId) {
     setError(false)
     let cancel
     axios({
+      // url: 'https://cors-anywhere.herokuapp.com/https://www.dcard.tw/v2/posts', // 此方法會得到403 code
       url: 'https://www.dcard.tw/v2/posts',
       headers: {
         'Content-Type' : 'application/json',
